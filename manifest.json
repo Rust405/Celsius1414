@@ -1,0 +1,27 @@
+{
+    "name": "Celsius1414",
+    "version": "1.0",
+    "description": "This extension attempts to remove AI images from Google Image search results using Google Search's term exclusion feature.",
+    "manifest_version": 3,
+    "author": "Russell Len",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Celsius1414"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.google.com/search?*&udm=2&*"
+            ],
+            "js": [
+                "constants.js",
+                "content-script.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "storage",
+        "tabs"
+    ]
+}

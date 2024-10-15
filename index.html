@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celsius1414</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptextBottom {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 4px;
+            position: absolute;
+            z-index: 1;
+            top: 150%;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .tooltip .tooltiptextTop {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 4px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .tooltip .tooltiptextLeft {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 4px;
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            left: 110%;
+        }
+
+        .tooltip .tooltiptextBottom::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
+
+        .tooltip .tooltiptextTop::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .tooltip .tooltiptextLeft::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent black transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptextBottom,
+        .tooltip:hover .tooltiptextTop,
+        .tooltip:hover .tooltiptextLeft {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:240px;margin:8px">
+        <div class="tooltip" style="width:100%;text-align: center;">
+            <a style="font-size: 24px;"><b>Celsius1414</b></a>
+            <span class="tooltiptextBottom">
+                Welcome to Celsius1414, the melting point of silicon! This extension utillizes Google's term exclusion
+                feature to attempt to remove AI generated art from your Google Image search results. Try it out when you
+                use search Image results :)
+            </span>
+        </div>
+
+        <div>
+            <div class="tooltip">
+                <input style="margin-top:8px" type="checkbox" id="showCleanButtonCB" />
+                <label for="showCleanButtonCB"> Show <i class="fa fa-search" style="color:lime"></i> Button</label>
+                <span class="tooltiptextBottom">Show clean-search button in Images search results page.</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="tooltip">
+                <input style="margin-top:8px" type="checkbox" id="hideExclusionsCB" />
+                <label for="hideExclusionsCB">Hide Exclusions</label>
+                <span class="tooltiptextBottom">Hide exclusions from search bar and page title.</span>
+            </div>
+        </div>
+
+        <input type="checkbox" id="enableResetListBtnCB" />
+        <div class="tooltip">
+            <button id="resetListBtn" style="margin-top:8px" disabled>Load Default Exclusions</button>
+            <span class="tooltiptextBottom">Warning: Your custom terms will be forever lost!</span>
+        </div>
+
+
+        <div style="margin-top:8px">
+            <div class="tooltip">
+                <b>Exclusion Terms:</b>
+                <span class="tooltiptextBottom">Note: Custom terms are synced across your Chrome profiles.</span>
+            </div>
+            <div id="blockedTermsList" style="overflow:auto; height:150px; border:1px solid black; padding:4px">
+            </div>
+        </div>
+
+        <div class="tooltip" style="margin-top:8px">
+            <a><b>Add New Exclusion Term:</b></a>
+            <input type="text" id="newBlockTermInput" />
+            <button id="addBlockTermBtn">+</button>
+            <span class="tooltiptextTop">Add your own custom terms to excclude from Images search results.</span>
+        </div>
+    </div>
+</body>
+<script src="constants.js"></script>
+<script src="script.js"></script>
+
+</html>
